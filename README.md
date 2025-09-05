@@ -20,7 +20,7 @@ The application functions as a sophisticated pipeline that processes text throug
     * Deconstruct the narrative into a logical number of key scenes.
     * For each scene, provide both a concise description and a new, dramatically enhanced prompt.
     * Return this entire structure as a clean, predictable JSON object.
-3.  **Hugging Face (The "Artist")**: The backend parses the JSON from Gemini. For each enhanced prompt, it makes an API call to the Hugging Face Inference API, which uses the **Stable Diffusion XL** model to generate an image.
+3.  **Hugging Face (The "Artist")**: The backend parses the JSON from Gemini. For each enhanced prompt, it makes an API call to the Hugging Face Inference API, which uses the **Stable Diffusion xl base 1.0** model to generate an image.
 4.  **Flask & Frontend**: The backend collects the generated images and their corresponding text captions, then renders them in a clean, user-friendly storyboard format on a results page.
 
 ---
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 ### 4. Set Up API Keys
 The application requires API keys from Google and Hugging Face. A `.env.example` file is included with placeholders.
 
-1.  Rename the `.env.example` file to `.env`.
+1.  Create your own `.env` file and add your API keys there.
 2.  Open the `.env` file and replace the placeholder values with your actual API keys:
     ```
     GEMINI_API_KEY="YOUR_GOOGLE_GEMINI_API_KEY"
@@ -75,8 +75,8 @@ Open your web browser and navigate to `http://127.0.0.1:5000` to use the applica
 
 Our methodology was centered on creating an intelligent, adaptable system rather than a simple chain of API calls.
 
-* **Moving Beyond NLTK**: We initially used NLTK for sentence segmentation but quickly pivoted. NLTK is rule-based and lacks contextual understanding. By delegating this task to **Gemini**, the application can identify true "visual moments" that may span multiple sentences or exist within a single long one.
+* **Moving Beyond NLTK**: I initially used NLTK for sentence segmentation but quickly pivoted. NLTK is rule-based and lacks contextual understanding. By delegating this task to **Gemini**, the application can identify true "visual moments" that may span multiple sentences or exist within a single long one.
 
-* **Single, Structured API Call**: Our final architecture makes a single call to Gemini to handle both segmentation and prompt enhancement. We instruct the LLM to return a structured **JSON object**. This is a highly robust and efficient design pattern that reduces latency and simplifies the backend logic, as we receive all the necessary text data in one predictable format.
+* **Single, Structured API Call**: My final architecture makes a single call to Gemini to handle both segmentation and prompt enhancement. We instruct the LLM to return a structured **JSON object**. This is a highly robust and efficient design pattern that reduces latency and simplifies the backend logic, as we receive all the necessary text data in one predictable format.
 
-* **Prompt Engineering as Instruction**: Our "meta-prompt" is the core of our AI logic. Instead of just asking the LLM a question, we give it a **persona** ("expert screenwriter") and a **strict set of instructions** (deconstruct text, create new prompts, return only JSON, do not invent new story elements). This level of control is key to getting reliable, high-quality output from modern LLMs and represents the core of our "intelligent prompt engineering" methodology.
+* **Prompt Engineering as Instruction**: My "meta-prompt" is the core of our AI logic. Instead of just asking the LLM a question, we give it a **persona** ("expert screenwriter") and a **strict set of instructions** (deconstruct text, create new prompts, return only JSON, do not invent new story elements). This level of control is key to getting reliable, high-quality output from modern LLMs and represents the core of our "intelligent prompt engineering" methodology.
