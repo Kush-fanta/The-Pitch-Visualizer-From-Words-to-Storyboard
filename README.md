@@ -80,3 +80,6 @@ Our methodology was centered on creating an intelligent, adaptable system rather
 * **Single, Structured API Call**: My final architecture makes a single call to Gemini to handle both segmentation and prompt enhancement. We instruct the LLM to return a structured **JSON object**. This is a highly robust and efficient design pattern that reduces latency and simplifies the backend logic, as we receive all the necessary text data in one predictable format.
 
 * **Prompt Engineering as Instruction**: My "meta-prompt" is the core of our AI logic. Instead of just asking the LLM a question, we give it a **persona** ("expert screenwriter") and a **strict set of instructions** (deconstruct text, create new prompts, return only JSON, do not invent new story elements). This level of control is key to getting reliable, high-quality output from modern LLMs and represents the core of our "intelligent prompt engineering" methodology.
+
+## Working Screenshot
+![The Pitch Visualizer in Action](assets/Screenshot 2025-09-05 191509.png)
