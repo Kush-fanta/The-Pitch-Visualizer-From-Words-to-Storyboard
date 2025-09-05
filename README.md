@@ -5,7 +5,7 @@ The Pitch Visualizer is a web application designed to bridge the gap between nar
 ### Key Capabilities
 * **Intelligent Scene Segmentation**: Uses Google's Gemini model to analyze a narrative and break it down into logical, context-aware visual scenes.
 * **Advanced Prompt Engineering**: For each scene, Gemini acts as an expert prompt engineer, enhancing the simple text into a rich, detailed, and cinematic prompt tailored for an AI image generator.
-* **Dynamic Storyboard Generation**: The application can dynamically create storyboards of variable length (from 2 to 5 panels) based on the complexity of the input text.
+* **Dynamic Storyboard Generation**: The application can dynamically create storyboards of variable length based on the complexity of the input text.
 * **User-Selectable Styles**: Allows the user to choose from a variety of artistic styles to ensure the final visuals match the desired tone of the pitch.
 
 ---
