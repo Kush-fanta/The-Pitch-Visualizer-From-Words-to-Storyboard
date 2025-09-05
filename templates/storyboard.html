@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Visual Storyboard</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 40px; }
+        .header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #4a4a4a; }
+        .storyboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .panel { background: white; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); overflow: hidden; }
+        .panel img { width: 100%; height: auto; display: block; }
+        .panel p { padding: 15px; font-size: 16px; line-height: 1.5; margin: 0; }
+        .back-link { display: block; text-align: center; margin-top: 40px; text-decoration: none; color: #007aff; font-weight: bold; }
+        .caption {
+        padding: 15px;
+    }
+    .caption p {
+        margin: 0 0 10px 0; /* Add some space between the lines */
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    .caption p:last-child {
+        margin-bottom: 0;
+    }
+    .caption small {
+        color: #555; /* Make the enhanced prompt slightly less prominent */
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Your Visual Storyboard</h1>
+    </div>
+
+    <div class="storyboard">
+        {% for panel in storyboard %}
+        <div class="panel">
+            <img src="data:image/jpeg;base64,{{ panel.image_data }}" alt="Generated storyboard image">
+                <div class="caption">
+                    <p><strong>Original:</strong> {{ panel.original_text }}</p>
+                    <p><strong>Enhanced Prompt:</strong> <small>{{ panel.enhanced_prompt }}</small></p>
+                </div>
+        </div>  
+        {% else %}
+        <p>Sorry, we couldn't generate a storyboard. Please try again.</p>
+        {% endfor %}
+    </div>
+
+    <a href="/" class="back-link">← Create a New Storyboard</a>
+</body>
+</html>
