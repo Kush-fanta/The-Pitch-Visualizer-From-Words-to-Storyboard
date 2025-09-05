@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pitch Visualizer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f4f9; color: #333; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); width: 100%; max-width: 600px; text-align: center; }
+        h1 { color: #4a4a4a; margin-bottom: 20px; }
+        textarea, select { width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ddd; font-size: 16px; box-sizing: border-box; }
+        button { background-color: #007aff; color: white; padding: 15px 30px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background-color 0.3s; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ The Pitch Visualizer</h1>
+        <form action="/generate" method="POST">
+            <textarea name="text" rows="6" placeholder="Paste your customer success story or pitch narrative here... (3-5 sentences recommended)" required></textarea>
+            <select name="style" required>
+                <option value="" disabled selected>Select a Visual Style</option>
+                <option value="Photorealistic">Photorealistic</option>
+                <option value="Digital Art">Digital Art</option>
+                <option value="Anime">Anime</option>
+                <option value="Fantasy Art">Fantasy Art</option>
+                <option value="Cyberpunk">Cyberpunk</option>
+            </select>
+            <button type="submit">Generate Storyboard</button>
+        </form>
+    </div>
+</body>
+</html>
